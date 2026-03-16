@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Start Screen -->
+  <div class="screen" id="startScreen">
+    <div class="card">
+      <h1>General Knowledge Quiz</h1>
+      <p>10 questions · Multiple choice · Timed</p>
+      <button id="startBtn" class="btn-primary">Start Quiz</button>
+    </div>
+  </div>
+
+  <!-- Quiz Screen -->
+  <div class="screen hidden" id="quizScreen">
+    <div class="quiz-header">
+      <span id="questionCounter">Question 1 / 10</span>
+      <span id="timer">⏱ 15s</span>
+      <span id="score">Score: 0</span>
+    </div>
+    <div class="progress-bar"><div id="progressFill"></div></div>
+    <div class="card">
+      <p id="questionText"></p>
+      <ul id="optionsList"></ul>
+    </div>
+  </div>
+
+  <!-- Result Screen -->
+  <div class="screen hidden" id="resultScreen">
+    <div class="card result-card">
+      <div id="resultEmoji" class="result-emoji"></div>
+      <h2 id="resultTitle"></h2>
+      <p id="resultMsg"></p>
+      <div class="result-stats">
+        <div><span id="finalScore">0</span><small>Score</small></div>
+        <div><span id="finalCorrect">0</span><small>Correct</small></div>
+        <div><span id="finalWrong">0</span><small>Wrong</small></div>
+      </div>
+      <button id="restartBtn" class="btn-primary">Play Again</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
