@@ -1,17 +1,25 @@
 # Quiz App
 
-A timed multiple-choice general knowledge quiz with score tracking and animated feedback.
+## Overview
+A timed multiple-choice quiz project for practicing logic flow, timers, and scoring systems.
 
-## Features
-- 10 randomized general knowledge questions
-- 15-second countdown timer per question (urgent animation at 5s)
-- Bonus points for answering quickly
-- Correct/wrong answer highlighted instantly
-- Final result screen with score, correct, and wrong counts
-- Performance-based result message (Perfect / Great / Not bad / Keep Learning)
-
-## How to Run
-Open `index.html` in any browser. No installation needed.
+## Learning Outcomes
+- Control quiz state across multiple questions
+- Build timer-based interactions
+- Show real-time feedback and final performance summary
 
 ## Tech Stack
-HTML · CSS · JavaScript
+- HTML
+- CSS
+- JavaScript
+
+## Run Locally
+1. Open `index.html` in a browser.
+
+## Common Mistakes
+- Not clearing timer intervals when changing questions
+- Double-scoring answers due to repeated event binding
+
+## Next Improvements
+- Add difficulty levels and question categories
+- Add leaderboard with persistent scores
