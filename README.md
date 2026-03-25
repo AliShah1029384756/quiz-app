@@ -4,7 +4,7 @@
 ![Type](https://img.shields.io/badge/Type-Timed%20Quiz-16a34a)
 
 ## 🎨 Live Demo
-Open [`index.html`](index.html) in your browser to take the quiz.
+Open [Live Demo](https://htmlpreview.github.io/?https://github.com/AliShah1029384756/quiz-app/blob/main/index.html) in your browser to take the quiz.
 
 ## Overview
 Timed multiple-choice quiz project for practicing logic flow, timers, and scoring systems.
