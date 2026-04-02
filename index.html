@@ -3,46 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz App</title>
+  <title>Quiz App | Ali Shah</title>
+  <meta name="description" content="A timed general knowledge quiz with multiple-choice questions, scoring, and animated results.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      display: block;
+      min-height: 100vh;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top, rgba(244,63,94,0.12), transparent 30%),
+        radial-gradient(circle at right, rgba(59,130,246,0.12), transparent 28%),
+        #08111f;
+      font-family: 'Inter', sans-serif;
+    }
+    .page-shell { max-width: 1100px; margin: 0 auto; }
+    .hero, .panel {
+      background: rgba(15,23,42,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.4);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1rem;
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+      align-items: center;
+    }
+    .eyebrow { display:inline-flex; gap:.5rem; align-items:center; padding:.35rem .8rem; border-radius:999px; background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.18); color:#93c5fd; font:700 .72rem/1 'Syne',sans-serif; letter-spacing:.08em; text-transform:uppercase; margin-bottom:1rem; }
+    .hero h1 { font:800 clamp(2.2rem,5vw,4.2rem)/.95 'Syne',sans-serif; letter-spacing:-.04em; color:#f8fafc; margin-bottom:.8rem; }
+    .hero p { color:#b1bed1; max-width:58ch; line-height:1.7; }
+    .panel { padding: 1rem; }
+    .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; }
+    .stat { padding:1rem; border-radius:18px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); }
+    .stat strong { display:block; color:#fff; font:800 1rem 'Syne',sans-serif; }
+    .stat span { color:#94a3b8; font-size:.82rem; }
+    .app-stage { display:grid; place-items:center; padding: .5rem 0 2rem; }
+    .app-frame { padding: 14px; border-radius: 28px; background: linear-gradient(135deg, rgba(244,63,94,0.16), rgba(59,130,246,0.12)); width: 100%; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-  <!-- Start Screen -->
-  <div class="screen" id="startScreen">
-    <div class="card">
-      <h1>General Knowledge Quiz</h1>
-      <p>10 questions · Multiple choice · Timed</p>
-      <button id="startBtn" class="btn-primary">Start Quiz</button>
-    </div>
-  </div>
-
-  <!-- Quiz Screen -->
-  <div class="screen hidden" id="quizScreen">
-    <div class="quiz-header">
-      <span id="questionCounter">Question 1 / 10</span>
-      <span id="timer">⏱ 15s</span>
-      <span id="score">Score: 0</span>
-    </div>
-    <div class="progress-bar"><div id="progressFill"></div></div>
-    <div class="card">
-      <p id="questionText"></p>
-      <ul id="optionsList"></ul>
-    </div>
-  </div>
-
-  <!-- Result Screen -->
-  <div class="screen hidden" id="resultScreen">
-    <div class="card result-card">
-      <div id="resultEmoji" class="result-emoji"></div>
-      <h2 id="resultTitle"></h2>
-      <p id="resultMsg"></p>
-      <div class="result-stats">
-        <div><span id="finalScore">0</span><small>Score</small></div>
-        <div><span id="finalCorrect">0</span><small>Correct</small></div>
-        <div><span id="finalWrong">0</span><small>Wrong</small></div>
+  <div class="page-shell">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">QUIZ EXPERIENCE · TIMED & INTERACTIVE</div>
+        <h1>Quiz App</h1>
+        <p>Challenge yourself with a timed 10-question general knowledge quiz, real-time score tracking, and a results screen built for replayability.</p>
       </div>
-      <button id="restartBtn" class="btn-primary">Play Again</button>
-    </div>
+      <div class="panel">
+        <div class="stats-grid">
+          <div class="stat"><strong>Timed</strong><span>15s questions</span></div>
+          <div class="stat"><strong>Scored</strong><span>Immediate feedback</span></div>
+          <div class="stat"><strong>Replayable</strong><span>Fast restart loop</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-stage">
+      <div class="app-frame">
+        <div class="screen" id="startScreen">
+          <div class="card">
+            <h1>General Knowledge Quiz</h1>
+            <p>10 questions · Multiple choice · Timed</p>
+            <button id="startBtn" class="btn-primary">Start Quiz</button>
+          </div>
+        </div>
+
+        <div class="screen hidden" id="quizScreen">
+          <div class="quiz-header">
+            <span id="questionCounter">Question 1 / 10</span>
+            <span id="timer">⏱ 15s</span>
+            <span id="score">Score: 0</span>
+          </div>
+          <div class="progress-bar"><div id="progressFill"></div></div>
+          <div class="card">
+            <p id="questionText"></p>
+            <ul id="optionsList"></ul>
+          </div>
+        </div>
+
+        <div class="screen hidden" id="resultScreen">
+          <div class="card result-card">
+            <div id="resultEmoji" class="result-emoji"></div>
+            <h2 id="resultTitle"></h2>
+            <p id="resultMsg"></p>
+            <div class="result-stats">
+              <div><span id="finalScore">0</span><small>Score</small></div>
+              <div><span id="finalCorrect">0</span><small>Correct</small></div>
+              <div><span id="finalWrong">0</span><small>Wrong</small></div>
+            </div>
+            <button id="restartBtn" class="btn-primary">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script src="app.js"></script>
